@@ -2,12 +2,13 @@
 
 const MovieCard = ({movie}) => {
 	
+
 	return (
 		<li>
-			<h3>Name: {movie.name}</h3>
+			<h3>Name: {movie.l}</h3>
 			<p>Type: {movie.type}</p>
 			<p className="img">
-				<img src={movie.imageUrl} />
+				<img src={movie.i.imageUrl} alt="movie" /> 
 			</p>
 			<button className="button">
 				Details

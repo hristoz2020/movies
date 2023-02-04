@@ -1,24 +1,30 @@
-import { useState, useEffect } from 'react';
-import * as movieService from '../../service/movieService';
+import { useEffect, useState } from "react";
+import { getMovies } from "../../service/moviesService";
+import MovieCard from "./MovieCard/MovieCard";
 
 const MovieList = () => {
-    const [movie, setMovie] = useState({});
+    const [ movie, setMovie ] = useState([]);
 
     useEffect(() => {
-        movieService.getMovies()
-            .then(movie => {
-                setMovie(movie);
+        getMovies()
+            .then(result => {
+                setMovie(result.d);
             })
             .catch(err => {
-                alert(err);
+                console.log(err);
             });
     }, []);
-
-    return(
-        <>
-            
-        </>
-    );
-}
+    
+	return (
+		<>
+			<h1>Wellcome to movie list!</h1>
+            <ul>
+                {movie.map((x) => (
+                    <MovieCard key={x.id} movie={x} />
+                ))}
+            </ul>
+		</>
+	);
+};
 
 export default MovieList;
