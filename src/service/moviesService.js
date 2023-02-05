@@ -6,8 +6,10 @@ const options = {
 	}
 };
 
+const searchBy = 'games';
+
 export const getMovies = async () => {
-	let response = await fetch('https://online-movie-database.p.rapidapi.com/auto-complete?q=game', options)
+	let response = await fetch(`https://online-movie-database.p.rapidapi.com/auto-complete?q=${searchBy}`, options)
 	
 	let result = await response.json();
 	
