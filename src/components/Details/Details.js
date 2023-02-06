@@ -1,10 +1,10 @@
 
-
-const Navigation = ({movie}) => {
-    console.log('this is ', movie);
+const Details = ({movieId}) => {
+  
+    console.log(movieId);
 	return (
         <p>test</p>
     )
 };
 
-export default Navigation;
+export default Details;

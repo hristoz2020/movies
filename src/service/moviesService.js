@@ -15,3 +15,4 @@ export const getMovies = async () => {
 	
 	return result;
 }
+

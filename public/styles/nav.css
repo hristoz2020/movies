@@ -1,0 +1,8 @@
+.navbar {
+    background-color: rgb(93, 123, 123);
+}
+
+.navbar .navbar-dashboard {
+    display: flex;
+    justify-content: flex-end;
+}
