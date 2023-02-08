@@ -6,6 +6,8 @@ import Details from '../src/components/Details/Details';
 import Login from '../src/components/Login/Login';
 import Register from './components/Register/Register';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 function App() {
 	return (
 		<div className="movies">

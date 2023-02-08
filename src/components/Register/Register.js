@@ -1,4 +1,6 @@
 import { useNavigate } from 'react-router';
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 const Register = () => {
     let navigate = useNavigate();
@@ -13,32 +15,30 @@ const Register = () => {
     }
     
     return (
-        <section id="register-page" className="register">
-            <form id="register-form" method="POST" onSubmit={registerSubmitHandler}>
-                <fieldset>
-                    <legend>Register Form</legend>
-                    <p className="field">
-                        <label htmlFor="email">Email</label>
-                        <span className="input">
-                            <input type="text" name="email" id="email" placeholder="Email" />
-                        </span>
-                    </p>
-                    <p className="field">
-                        <label htmlFor="password">Password</label>
-                        <span className="input">
-                            <input type="password" name="password" id="password" placeholder="Password" />
-                        </span>
-                    </p>
-                    <p className="field">
-                        <label htmlFor="repeat-pass">Repeat Password</label>
-                        <span className="input">
-                            <input type="password" name="confirm-pass" id="repeat-pass" placeholder="Repeat Password" />
-                        </span>
-                    </p>
-                    <input className="button submit" type="submit" value="Register" />
-                </fieldset>
-            </form>
-        </section>
+        <Form onSubmit={registerSubmitHandler} method="POST" className="form-container">
+			<Form.Group className="mb-3" controlId="formBasicEmail" >
+				<Form.Label>Email address</Form.Label>
+				<Form.Control type="email" name="email" placeholder="Enter email" />
+				<Form.Text className="text-muted">
+					We'll never share your email with anyone else.
+				</Form.Text>
+			</Form.Group>
+
+			<Form.Group className="mb-3" controlId="formBasicPassword">
+				<Form.Label>Password</Form.Label>
+				<Form.Control type="password" name="password" placeholder="Password" />
+			</Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+				<Form.Label>Repeat Password</Form.Label>
+				<Form.Control type="password" name="password" placeholder="Repeat Password" />
+			</Form.Group>
+			<Form.Group className="mb-3" controlId="formBasicCheckbox">
+				<Form.Check type="checkbox" label="Check me out" />
+			</Form.Group>
+			<Button variant="primary" type="submit">
+				Submit
+			</Button>
+		</Form>
     );
 }
 

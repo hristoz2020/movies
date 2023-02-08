@@ -1,42 +1,44 @@
-import { useNavigate } from 'react-router';
+import { useNavigate } from "react-router";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 const Login = () => {
-    let navigate = useNavigate();
+	let navigate = useNavigate();
 
-    const onLoginHandler = (e) => {
-        e.preventDefault();
+	const onLoginHandler = (e) => {
+		e.preventDefault();
 
-        let formData = new FormData(e.currentTarget);
+		let formData = new FormData(e.currentTarget);
 
-        let email = formData.get('email');
-        let password = formData.get('password');
+		let email = formData.get("email");
+		let password = formData.get("password");
 
-        navigate('/');
-        console.log('email > ',email,'password > ',password);
-    }
-    
-    return (
-        <section id="login-page" className="login">
-            <form id="login-form" onSubmit={onLoginHandler} method="POST">
-                <fieldset>
-                    <legend>Login Form</legend>
-                    <p className="field">
-                        <label htmlFor="email">Email</label>
-                        <span className="input">
-                            <input type="text" name="email" id="email" placeholder="Email" />
-                        </span>
-                    </p>
-                    <p className="field">
-                        <label htmlFor="password">Password</label>
-                        <span className="input">
-                            <input type="password" name="password" id="password" placeholder="Password" />
-                        </span>
-                    </p>
-                    <input className="button submit" type="submit" value="Login" />
-                </fieldset>
-            </form>
-        </section>
-    );
-}
+		navigate("/");
+		console.log("email > ", email, "password > ", password);
+	};
+
+	return (
+		<Form onSubmit={onLoginHandler} method="POST" className="form-container">
+			<Form.Group className="mb-3" controlId="formBasicEmail" >
+				<Form.Label>Email address</Form.Label>
+				<Form.Control type="email" name="email" placeholder="Enter email" />
+				<Form.Text className="text-muted">
+					We'll never share your email with anyone else.
+				</Form.Text>
+			</Form.Group>
+
+			<Form.Group className="mb-3" controlId="formBasicPassword">
+				<Form.Label>Password</Form.Label>
+				<Form.Control type="password" name="password" placeholder="Password" />
+			</Form.Group>
+			<Form.Group className="mb-3" controlId="formBasicCheckbox">
+				<Form.Check type="checkbox" label="Check me out" />
+			</Form.Group>
+			<Button variant="primary" type="submit">
+				Submit
+			</Button>
+		</Form>
+	);
+};
 
 export default Login;
