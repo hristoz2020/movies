@@ -1,3 +1,4 @@
+
 const options = {
 	method: 'GET',
 	headers: {
@@ -15,4 +16,3 @@ export const getMovies = async () => {
 	
 	return result;
 }
-
